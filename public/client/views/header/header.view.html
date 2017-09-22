@@ -1,0 +1,63 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+
+
+        <div  id="navbar" class="navbar-collapse collapse">
+            <ul class="menu nav navbar-nav navbar-left">
+                <li><a  href="#">
+                    <i class="fa fa-quora" aria-hidden="true"></i>
+
+                    Mini Quora</a>
+                </li>
+            </ul>
+            <ul ng-hide="currentUser" class="menu nav navbar-nav navbar-right">
+                <li><a href="#/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In </a></li>
+            </ul>
+
+            <ul ng-hide="currentUser" class="menu nav navbar-nav navbar-right">
+                <li><a><i class="fa fa-user" aria-hidden="true"></i></a>
+                    <ul class="submenu">
+                        <li ng-hide="currentUser">
+                            <a href="#/register">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                            </a>
+                        </li>
+                        <li ng-hide="currentUser">
+                            <a href="#/login"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul ng-show="currentUser" class="menu nav navbar-nav navbar-right">
+                <li ><a>User <i class="fa fa-user" aria-hidden="true"></i></a>
+                    <ul class="submenu">
+                        <li ><a ng-click="model.setProfile()">{{currentUser.username}}!!</a></li>
+                        <li  ng-click="model.logout()"><a><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul ng-show="currentUser" class="menu nav navbar-nav navbar-right">
+                <li ><a>Find     `<i class="fa fa-search" aria-hidden="true"></i></a>
+                    <ul class="submenu">
+                        <li ng-show="currentUser.role == 'customer'"><a href="#/mainhome"> <i class="fa fa-truck" aria-hidden="true"></i> Vehicle </a></li>
+                        <li ng-show="currentUser"><a ng-click="model.displayBookings()"><i class="fa  fa-folder-open" aria-hidden="true"></i> Booking</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+
+        </div><!--/.navbar-collapse -->
+    </div>
+</nav>

@@ -1,0 +1,88 @@
+body{
+    font-family: 'Century Gothic';
+}
+
+
+/*Checkboxes styles*/
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    font-family: 'Century Gothic';
+    font-weight: 100;
+    color: #254061;
+    cursor: pointer;
+    padding-left: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #254061;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    opacity: .6;
+    -webkit-transition: all .25s, border-color .15s;
+    transition: all .25s, border-color .15s;
+}
+
+input[type="checkbox"]:checked + label:before {
+    width: 7px;
+    left: 3px;
+    top: -1px;
+    border-radius: 0;
+    opacity: 1;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.radio-bs-primary input[type="radio"]:checked + label::after {
+    background-color: #254061;
+}
+
+.radio-bs-primary input[type="radio"] + label::after {
+    background-color: #254061;
+}
+
+.radio-bs-primary input[type="radio"]:checked + label::before {
+    border-color: #bcb666;
+}
+.radio-bs label::before{
+    border : 2px solid #cccccc;
+}
+
+body{
+    background: #f2f2f2;
+}
+
+.no-border-box{
+    border-color: transparent;
+}
+.question-box{
+    background: #7d97a5;
+    color: white;
+}
+
+hr{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.collapse-text-toggle{
+    font-weight: bold;
+    color: #a94442;
+    cursor:pointer
+}

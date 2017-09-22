@@ -1,0 +1,55 @@
+<div class="row"> <!--ng-controller="LoginController"  already mention in config file-->
+    <div class="col-sm-12">
+        <div class="box no-border-box question-box">
+            <div class="box-body" >
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h5 style="margin-top: 0">Question {{ questionId }}: </h5>
+
+                    </div>
+                    <div class="col-sm-9">
+                        <p><i>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla.
+                            Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus.</i></p>
+                    </div>
+                    <div class="col-sm-1">
+                        <ul class="social-network social-circle">
+                            <li><a href="#/2/editQuestion" class="icoFacebook" title="Edit Question"><i class="fa fa-pencil-square-o"></i></a></li>
+                            <li><a href="#/2/deleteQuestion" class="icoRss" title="Remove Question"><i class="fa fa-times"></i></a></li>
+                            <!--<li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>-->
+                            <!--<li><a href="#" class="icoInstagram" title="Instagram"><i class="fa fa-instagram"></i></a></li>-->
+                            <!--<li><a href="#" class="icoYelp" title="Yelp"><i class="fa fa-yelp"></i></a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box no-border-box">
+            <div class="box-body">
+
+                <div ng-repeat="i in [1,2,3,4,5]">
+                    <hr>
+                    <!--<test-directive></test-directive>-->
+                    <!--<div class="test-directive">12</div>-->
+                    <!--<div test-directive></div>-->
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <h5 style="margin-top: 0">Answer {{i}}:</h5>
+                        </div>
+                        <div class="col-sm-9" >
+                            <p dd-text-collapse dd-text-collapse-max-length="230" dd-text-collapse-text="{{ longText }}"></p>
+                        </div>
+                        <div class="col-sm-1">
+                            <ul class="social-network social-circle">
+                                <li><a href="#/2/editQuestion" class="icoVoteUp" title="Edit Question"><i class="fa fa-thumbs-up"></i></a></li>
+                                <li><a href="#/2/deleteQuestion" class="icoVoteDown" title="Remove Question"><i class="fa fa-thumbs-down"></i></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

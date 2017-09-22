@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MiniQuoraApp"><!--will have to create same js file as directive used : ng-app-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <!--Required for bootstrap.js-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <!--Anguler Core-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <!--Anguler Routing-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+
+
+        <script src="app.js"></script>
+        <script src="config.js"></script>
+
+        <script src="views/user/register.controller.js"></script>
+        <script src="views/user/login.controller.js"></script>
+        <script src="views/qna/detail.controller.js"></script>
+
+        <script src="js/directives/test.directive.js"></script>
+        <script src="js/directives/readmore-less.directive.js"></script>
+
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <!--<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link href="css/user.css" rel="stylesheet">
+        <link href="css/common.css" rel="stylesheet">
+        <link href="css/header.css" rel="stylesheet">
+        <link href="css/editorPanel.css" rel="stylesheet">
+
+</head>
+
+    <body>
+        <!-- BEGIN NAV-->
+        <div class="row">
+        <div ng-include="'views/header/header2.view.html'" class="col-sm-12"></div>
+        </div>
+        <!-- END NAV-->
+
+        <!-- Dynamic Page loadedd here-->
+        <div class="container" ng-view style="width: 60%; margin-top: 2%;"></div>.
+
+        <!--<div class="row">-->
+            <!--<div ng-include="'views/footer/footer.html'"></div>-->
+        <!--</div>-->
+    </body>
+</html>
