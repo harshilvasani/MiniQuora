@@ -12,6 +12,17 @@
         $scope.location = $location.url();
         alert( "In Detail Controller for " + $routeParams.questionId);
 
+        $scope.addNewAnswer = AddNewAnswer
+
+        function AddNewAnswer(newAnswer, questionId) {
+            alert(newAnswer + ' ' +questionId)
+        }
+
+        $scope.removeQuestion = RemoveQuestion
+
+        function RemoveQuestion(questionId) {
+            alert("remove Question id: " + questionId)
+        }
         // $scope.login = myLogin
         // function myLogin(username, password) {
         //     alert(username + ' ' + password)
