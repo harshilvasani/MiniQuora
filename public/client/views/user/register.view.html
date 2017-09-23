@@ -1,48 +1,56 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="box" style="border-color: #4d636f;">
-            <div class="box-header" style="text-align : center;">
-                <h3 class="box-title">
-                    <p style="color: #254061; font-size: x-large;">Register</p>
-                </h3>
+            <div  style="text-align : center; margin: 0">
+                <p style="color: #254061; font-size: x-large; margin: 0">Register</p>
             </div>
 
-            <div class="box-body effect1" id="login_logout">
+            <div class="box-body">
                 <form name="registerForm" ng-submit="register(newuser)" novalidate>
 
-                    <div class="form-group" ng-class="{ 'has-error' : registerForm.username.$invalid && !registerForm.username.$pristine }">
-                        <label>Username*</label>
-                        <input type="text" name="username" ng-pattern="/^[a-z]{5,20}/" ng-model="newuser.username" class="form-control" placeholder="Username" required>
-                        <p ng-show="registerForm.username.$invalid && !registerForm.username.$pristine" class="help-block">min 5 characters, only alphabet and _ allowed</p>
+                    <div class="form-group input-field" ng-class="{ 'has-error' : registerForm.username.$invalid && !registerForm.username.$pristine }">
+                        <i class="material-icons prefix">account_circle</i>
+                        <label for="username">Username*</label>
+                        <input type="text" name="username" id="username" ng-pattern="/^[a-z]{5,20}/" ng-model="newuser.username" class="form-control" required>
+                        <p ng-show="registerForm.username.$invalid && !registerForm.username.$pristine" class="error-text">min 5 characters, only alphabet and _ allowed</p>
                     </div>
 
                     <!--<p>{{registerForm.username}}</p>-->
                     <!--<p style="color: #9ea7b3; font-size: smaller;">min 5 characters, only alphabet and _ allowed</p>-->
 
 
-                    <div class="form-group" ng-class="{ 'has-error' : registerForm.pwd.$invalid && !registerForm.pwd.$pristine }">
-                        <label>Password*</label>
-                        <input type="password" name="pwd" class="form-control" ng-model="newuser.password" ng-minlength="8" ng-maxlength="20" placeholder="password" required>
-                        <p ng-show="registerForm.pwd.$error.minlength" class="help-block">Password is too short.(Min 8 characters)</p>
+                    <div class="form-group input-field" ng-class="{ 'has-error' : registerForm.pwd.$invalid && !registerForm.pwd.$pristine }">
+                        <i class="material-icons prefix">vpn_key</i>
+
+                        <label for="password">Password*</label>
+                        <input type="password" id="password" name="pwd" class="form-control" ng-model="newuser.password" ng-minlength="8" ng-maxlength="20" required>
+                        <p ng-show="registerForm.pwd.$error.minlength" class="error-text">Password is too short.(Min 8 characters)</p>
                     </div>
                     <!--<p style="color: #9ea7b3; font-size: smaller;">min 8 characters</p>-->
 
 
-                    <div class="form-group" ng-class="{ 'has-error' : registerForm.pwd2.$invalid && !registerForm.pwd2.$pristine }">
-                        <label>Confirm Password*</label>
-                        <input type="password" name="pwd2" class="form-control" ng-model="pwd2" ng-pattern="newuser.password" placeholder="confirm password" required>
-                        <p ng-show="registerForm.pwd2.$invalid && !registerForm.pwd2.$pristine" class="help-block">Password do not match</p>
+                    <div class="form-group input-field" ng-class="{ 'has-error' : registerForm.pwd2.$invalid && !registerForm.pwd2.$pristine }">
+                        <i class="material-icons prefix">vpn_key</i>
+
+                        <label for="confirm-password">Confirm Password*</label>
+
+                        <input type="password" id="confirm-password" name="pwd2" class="form-control" ng-model="pwd2" ng-pattern="newuser.password" required>
+                        <p ng-show="registerForm.pwd2.$invalid && !registerForm.pwd2.$pristine" class="error-text">Password do not match</p>
                     </div>
 
 
-                    <div class="form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
+                    <div class="form-group input-field" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
+                        <i class="material-icons prefix">email</i>
+
                         <label>Email</label>
-                        <input type="email" name="email" class="form-control" ng-model="newuser.email" placeholder="email">
-                        <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                        <label for="email">Email</label>
+
+                        <input type="email" id = "email" name="email" class="form-control" ng-model="newuser.email">
+                        <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="error-text">Enter a valid email.</p>
                     </div>
                     <!--<p>{{ registerForm.email }}</p>-->
 
-                    <button id="register" type="submit" ng-disabled="registerForm.$invalid" class="btn btn-default action-button" style="color: #bcb666; background-color: #4d636f; border-color: #bcb666; width : 100%">
+                    <button id="register" type="submit" ng-disabled="registerForm.$invalid" class="btn waves-effect waves-light btn action-button" style="margin-left: 45px" >
                         <span>REGISTER<i class="fa fa-user-plus" style="color : #bcb666;"></i></span>
                     </button>
                 </form>

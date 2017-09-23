@@ -86,3 +86,11 @@ hr{
     color: #a94442;
     cursor:pointer
 }
+
+.error-text{
+    margin-top: -15px;
+    font-size: smaller;
+    font-style: italic;
+    color: #C4302B;
+    margin-left: 45px;
+}
