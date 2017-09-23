@@ -23,6 +23,13 @@
         function RemoveQuestion(questionId) {
             alert("remove Question id: " + questionId)
         }
+
+        $scope.allVote = [0,0,0,0,0]
+
+        $scope.addVote = AddVote
+        function AddVote(id, value) {
+            $scope.allVote[id] += value
+        }
         // $scope.login = myLogin
         // function myLogin(username, password) {
         //     alert(username + ' ' + password)

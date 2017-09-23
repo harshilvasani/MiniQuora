@@ -94,3 +94,32 @@ hr{
     color: #C4302B;
     margin-left: 45px;
 }
+
+.myVotes{
+    margin: 0 0 5px 10px;
+    color: #9d9d9d;
+    font-weight: 500;
+}
+
+.neg-votes{
+    color: #C4302B;
+    margin-left: 5px;
+}
+
+
+.pos-votes{
+    color: #8bbf50;
+
+}
+
+.rotate{
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
