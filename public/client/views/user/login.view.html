@@ -1,40 +1,31 @@
-<div class="row"> <!--ng-controller="LoginController"  already mention in config file-->
-    <!--<div id="loginLoader">-->
-    <!--<img src="https://image.ibb.co/d8fv25/loading.gif" alt="Be patient..." style="display: block;  width: 20%; z-index: 1;&#10;                                                                position: absolute;top: 15%; left: 47%;"/>-->
-    <!--</div>-->
+<div class="row">
     <div class="col-sm-12">
         <div class="box" style="border-color: #4d636f;">
-            <div class="box-header" style="text-align : center;">
-                <h3 class="box-title">
-                    <p style="color: #254061; font-size: x-large;">Login</p>
-                </h3>
+            <div  style="text-align : center; margin: 0">
+                <p style="color: #254061; font-size: x-large; margin: 0">Login</p>
             </div>
-            <div class="box-body effect1" id="login_logout">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-                    <input type="text" ng-model="username" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-                </div>
-                <br>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                    <input class="form-control" ng-model="password" type="password" placeholder="Password">
-                </div>
 
+            <div class="box-body">
+                <form name="loginForm" ng-submit="login(username,password)" novalidate>
 
-                <div class="boxes" style="margin-top: 15px;margin-bottom: 10px;">
-                    <input type="checkbox" id="rememberMe" value="FALSE"/>
-                    <label for="rememberMe">Remember me</label>
-                </div>
-                <button id="loginUser" ng-click="login(username, password)" type="button" class="btn btn-default action-button" style="color: #bcb666; background-color: #4d636f; border-color: #bcb666; width : 100%">
-                    <span>
-              LOGIN
-              <i class="fa fa-sign-in" style="color : #bcb666;"></i>
-            </span>
-                </button>
+                    <div class="form-group input-field" ng-class="{ 'has-error' : loginForm.username.$invalid && !loginForm.username.$pristine }">
+                        <i class="material-icons prefix">account_circle</i>
+                        <label for="username">Username*</label>
+                        <input type="text" name="username" id="username" ng-pattern="/^[a-zA-Z_]{5,20}/" ng-model="username" class="form-control" required>
+                    </div>
+
+                    <div class="form-group input-field" ng-class="{ 'has-error' : loginForm.pwd.$invalid && !loginForm.pwd.$pristine }">
+                        <i class="material-icons prefix">vpn_key</i>
+
+                        <label for="password">Password*</label>
+                        <input type="password" id="password" name="pwd" class="form-control" ng-model="password" ng-minlength="8" ng-maxlength="20" required>
+                    </div>
+
+                    <button id="login" type="submit" ng-disabled="loginForm.$invalid" class="btn waves-effect waves-light btn action-button" style="margin-left: 45px" >
+                        <span>LOGIN<i class="fa fa-sign-in" style="color : #bcb666; margin-left: 5px"></i></span>
+                    </button>
+                </form>
             </div>
         </div>
-        <p>Entered User : {{ username }}</p>
-        <p>Entered Password : {{ password }}</p>
-        <p>location : {{ location }}
     </div>
 </div>

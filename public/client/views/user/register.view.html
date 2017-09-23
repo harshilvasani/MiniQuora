@@ -11,7 +11,7 @@
                     <div class="form-group input-field" ng-class="{ 'has-error' : registerForm.username.$invalid && !registerForm.username.$pristine }">
                         <i class="material-icons prefix">account_circle</i>
                         <label for="username">Username*</label>
-                        <input type="text" name="username" id="username" ng-pattern="/^[a-z]{5,20}/" ng-model="newuser.username" class="form-control" required>
+                        <input type="text" name="username" id="username" ng-pattern="/^[a-zA-Z_]{5,20}/" ng-model="newuser.username" class="form-control" required>
                         <p ng-show="registerForm.username.$invalid && !registerForm.username.$pristine" class="error-text">min 5 characters, only alphabet and _ allowed</p>
                     </div>
 
@@ -51,7 +51,7 @@
                     <!--<p>{{ registerForm.email }}</p>-->
 
                     <button id="register" type="submit" ng-disabled="registerForm.$invalid" class="btn waves-effect waves-light btn action-button" style="margin-left: 45px" >
-                        <span>REGISTER<i class="fa fa-user-plus" style="color : #bcb666;"></i></span>
+                        <span>REGISTER<i class="fa fa-user-plus" style="color : #bcb666; margin-left: 5px"></i></span>
                     </button>
                 </form>
             </div>
