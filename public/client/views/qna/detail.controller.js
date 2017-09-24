@@ -27,12 +27,14 @@
         $scope.allVote = [0,0,0,0,0]
 
         $scope.addVote = AddVote
+        $scope.hasVoted = [false, false, false, false, false]
+
         function AddVote(id, value) {
-            $scope.allVote[id] += value
+            if(!$scope.hasVoted[id]){
+                $scope.allVote[id] += value
+                $scope.hasVoted[id] = true
+            }
         }
-        // $scope.login = myLogin
-        // function myLogin(username, password) {
-        //     alert(username + ' ' + password)
-        // }
+
     }
 })();
