@@ -8,6 +8,7 @@
 
     function DetailController($scope,$location, $routeParams) {
         $scope.longText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+        $scope.question = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
         $scope.questionId = $routeParams.questionId
         $scope.location = $location.url();
         alert( "In Detail Controller for " + $routeParams.questionId);
@@ -22,6 +23,12 @@
 
         function RemoveQuestion(questionId) {
             alert("remove Question id: " + questionId)
+        }
+
+        $scope.updateQuestion = UpdateQuestion
+
+        function UpdateQuestion(questionId) {
+            alert("edited Question id: " + questionId + " \nupdated Question : " + $scope.question)
         }
 
         $scope.allVote = [0,0,0,0,0]

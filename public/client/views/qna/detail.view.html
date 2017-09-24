@@ -5,9 +5,9 @@
             <span class="card-title">Question {{ questionId }}:
                 <ul class="social-network social-circle">
                     <li><a href="#deletemodal{{questionId}}" class="deleteQuestion pull-right  modal-trigger" title="Remove Question"><i class="fa fa-times"></i></a></li>
-                    <li><a class="editQuestion pull-right modal-trigger" title="Edit Question"><i class="fa fa-pencil-square-o"></i></a></li>
+                    <li><a href="#editmodal{{questionId}}" class="editQuestion pull-right modal-trigger" title="Edit Question"><i class="fa fa-pencil-square-o"></i></a></li>
                 </ul></span>
-            <p dd-text-collapse dd-text-collapse-max-length="175" dd-text-collapse-text="{{ longText }}"></p>
+            <p dd-text-collapse dd-text-collapse-max-length="175" dd-text-collapse-text="{{ question }}"></p>
 
 
         </div>
@@ -40,12 +40,22 @@
 
 </script>
 <!-- Modal Structure -->
-<div id="deletemodal{{questionId}}" style="height: fit-content;
-    width: fit-content;border-radius: 6px;" class="modal">
+<div id="deletemodal{{questionId}}" style="height: fit-content; width: fit-content;border-radius: 6px;" class="modal">
     <div class="modal-content">
         <h5>Are you sure you want to remove?</h5>
         <a ng-click="removeQuestion(questionId)" class=" modal-action modal-close waves-effect waves-red btn-flat">Yes</a>
         <a  class=" modal-action modal-close waves-effect waves-blue btn-flat">No</a>
+    </div>
+</div>
+
+<div id="editmodal{{questionId}}" style="height:fit-content; border-radius: 6px;" class="modal">
+    <div class="input-field" style="margin: 20px;">
+        <textarea id="textarea2" class="materialize-textarea" value="" ng-model="question" required></textarea>
+        <button  style="margin-bottom: 10px;" class="btn  modal-action modal-close waves-effect waves-light blue-grey left" type="button"
+                ng-class="{'disabled':  question == undefined}"
+                ng-click="updateQuestion(questionId)">Update
+            <i class="material-icons right">update</i>
+        </button>
     </div>
 </div>
 
