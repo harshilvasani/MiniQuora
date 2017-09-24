@@ -224,3 +224,10 @@
 .navbar-collapse.in {
     overflow-y: visible;
 }
+
+.icon-text { margin-top: .3em;
+    position: relative;
+    font-size: small;
+    top: -10px;
+    left: -5px;
+}
