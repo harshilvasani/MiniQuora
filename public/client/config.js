@@ -18,13 +18,18 @@
                 controller : "RegisterController",
             })
 
+            .when("/wall", {
+                templateUrl: "views/qna/wall.view.html",
+                // controller : "RegisterController",
+            })
+
             .when("/:questionId/details", {
                 templateUrl: "views/qna/detail.view.html",
                 controller : "DetailController",
             })
 
             .otherwise({
-                redirectTo: "/register"
+                redirectTo: "/wall"
             });
     }
 })();
