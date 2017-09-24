@@ -322,7 +322,7 @@
       <updated>1505834915592</updated>
       <workItem from="1505834917082" duration="29915000" />
       <workItem from="1505951007188" duration="17279000" />
-      <workItem from="1506126323571" duration="23348000" />
+      <workItem from="1506126323571" duration="23360000" />
     </task>
     <task id="LOCAL-00001" summary="Adding materialize code for details page">
       <created>1506144765059</created>
@@ -380,11 +380,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506215922979</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="updated header icons">
+      <created>1506215928954</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1506215928954</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70542000" />
+    <option name="totallyTimeSpent" value="70554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1382" height="744" extended-state="6" />
