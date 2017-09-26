@@ -5,12 +5,12 @@
         </div>
         <div class="card-stacked">
             <div class="card-content">
-                <h4>What is your question?</h4>
+                <h4>Any question in mind?</h4>
                 <div class="card-action center" style="padding-bottom: 0">
                     <a style="background-color: transparent;text-decoration: none;"
                        href="#askQuestion"
                        class="modal-trigger">
-                        <strong>ASK ?</strong>
+                        <strong>ASK</strong>
                     </a>
                 </div>
             </div>
@@ -42,17 +42,23 @@
 <div ng-repeat="i in [0,1,2,3,4]" class="col s6">
     <div class="card">
         <div class="card-image" style="height: 100%">
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <a href="#/{{i}}/details" class="btn-floating halfway-fab waves-effect waves-light red" style="width: 35px;height: 35px;">
+                <i class="material-icons">details</i>
+            </a>
         </div>
         <div class="card-stacked">
-            <div class="card-content">
-                <a href="#" title="click to view all answers"><p style="font-size: large;font-weight: 600;" dd-text-collapse dd-text-collapse-max-length="175" dd-text-collapse-text="Lorem ipsum dolor sit amet,
+            <div class="card-content" style="padding-bottom: 0">
+                <p style="font-size: large;font-weight: 600;" dd-text-collapse dd-text-collapse-max-length="175" dd-text-collapse-text="Lorem ipsum dolor sit amet,
                  consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim
                   ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
                     laborum.">
-                </p></a>
+                </p>
+                <br>
+                <p class="pull-right" style="color: #999;font-size: smaller;font-weight: 500;"><em>Posted on: Sep 22, 2017</em></p>
+                <a href="#"><p class="" style="color: #999;font-size: smaller;font-weight: 500;"><em>Posted by: Harshil Vasani</em></p></a>
+
             </div>
             <div class="card-action">
                 <p dd-text-collapse dd-text-collapse-max-length="175" dd-text-collapse-text="Lorem ipsum dolor sit amet,
