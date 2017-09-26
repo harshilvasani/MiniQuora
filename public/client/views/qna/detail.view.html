@@ -4,12 +4,12 @@
     <div class="card-content  blue-grey darken-1" style="padding: 0 0 10px 0;">
 
         <div class="card-content white-text">
-            <span class="card-title">Question {{ questionId }}:
+            <span class="card-title">Question {{ detailModel.Question.questionId }}:
                 <ul class="social-network social-circle">
-                    <li><a href="#deletemodal{{questionId}}" class="deleteQuestion pull-right  modal-trigger" title="Remove Question"><i class="fa fa-times"></i></a></li>
-                    <li><a href="#editmodal{{questionId}}" class="editQuestion pull-right modal-trigger" title="Edit Question"><i class="fa fa-pencil-square-o"></i></a></li>
+                    <li><a href="#deletemodal{{ detailModel.Question.questionId }}" class="deleteQuestion pull-right modal-trigger" title="Remove Question"><i class="fa fa-times"></i></a></li>
+                    <li><a href="#editmodal{{ detailModel.Question.questionId }}" class="editQuestion pull-right modal-trigger" title="Edit Question"><i class="fa fa-pencil-square-o"></i></a></li>
                 </ul></span>
-            <p dd-text-collapse dd-text-collapse-max-length="175" dd-text-collapse-text="{{ question }}"></p>
+            <p dd-text-collapse dd-text-collapse-max-length="175" dd-text-collapse-text="{{ detailModel.Question.questionText }}"></p>
 
 
         </div>
@@ -24,11 +24,11 @@
     <div class="card-reveal" style="padding: 10px">
         <span class="card-title"><i class="material-icons right">close</i></span>
         <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea" data-length="120" ng-model="newAnswer" required></textarea>
+            <textarea id="textarea1" class="materialize-textarea" data-length="120" ng-model="detailModel.newAnswer" required></textarea>
             <label for="textarea1">Answer</label>
             <button class="btn waves-effect waves-light blue-grey left" type="button"
-                    ng-class="{'disabled':  newAnswer == undefined}"
-                    ng-click="addNewAnswer(newAnswer, questionId)">Submit
+                    ng-class="{'disabled':  detailModel.newAnswer == undefined}"
+                    ng-click="detailModel.addNewAnswer(detailModel.newAnswer, detailModel.Question.questionId)">Submit
                 <i class="material-icons right">send</i>
             </button>
         </div>
@@ -42,20 +42,20 @@
 
 </script>
 <!-- Modal Structure -->
-<div id="deletemodal{{questionId}}" style="height: fit-content; width: fit-content;border-radius: 6px;" class="modal">
+<div id="deletemodal{{detailModel.Question.questionId}}" style="height: fit-content; width: fit-content;border-radius: 6px;" class="modal">
     <div class="modal-content">
         <h5>Are you sure you want to remove?</h5>
-        <a ng-click="removeQuestion(questionId)" class=" modal-action modal-close waves-effect waves-red btn-flat">Yes</a>
-        <a  class=" modal-action modal-close waves-effect waves-blue btn-flat">No</a>
+        <a ng-click="detailModel.removeQuestion(detailModel.Question.questionId)" class=" modal-action modal-close waves-effect waves-red btn-flat">Yes</a>
+        <a class=" modal-action modal-close waves-effect waves-blue btn-flat">No</a>
     </div>
 </div>
 
-<div id="editmodal{{questionId}}" style="height:fit-content; border-radius: 6px;" class="modal">
+<div id="editmodal{{detailModel.Question.questionId}}" style="height:fit-content; border-radius: 6px;" class="modal">
     <div class="input-field" style="margin: 20px;">
-        <textarea id="textarea2" class="materialize-textarea" value="" ng-model="question" required></textarea>
-        <button  style="margin-bottom: 10px;" class="btn  modal-action modal-close waves-effect waves-light blue-grey left" type="button"
-                ng-class="{'disabled':  question == undefined}"
-                ng-click="updateQuestion(questionId)">Update
+        <textarea id="textarea2" class="materialize-textarea" value="" ng-model="detailModel.Question.questionText" required></textarea>
+        <button  style="margin-bottom: 10px;" class="btn modal-action modal-close waves-effect waves-light blue-grey left" type="button"
+                ng-class="{'disabled':  detailModel.Question.questionText == undefined}"
+                ng-click="detailModel.updateQuestion(detailModel.Question.questionId)">Update
             <i class="material-icons right">update</i>
         </button>
     </div>
@@ -74,19 +74,20 @@
                             <h6 style="margin-top: 0">Ans{{i}}:</h6>
                         </div>
                         <div class="col-sm-10" >
-                            <p dd-text-collapse dd-text-collapse-max-length="230" dd-text-collapse-text="{{ longText }}"></p>
+                            <p dd-text-collapse dd-text-collapse-max-length="230" dd-text-collapse-text="{{ detailModel.longText }}"></p>
                         </div>
                         <div class="col-sm-1">
                             <ul class="social-network social-circle">
-                                <li><a ng-click="addVote(i, 1)" class="icoVoteUp" title="Vote Up"><i class="fa fa-thumbs-up"></i></a></li>
+                                <li><a ng-click="detailModel.addVote(i, 1)" class="icoVoteUp" title="Vote Up"><i class="fa fa-thumbs-up"></i></a></li>
                                 <li><h5 animate-on-change anim-class="rotate"
                                         class="myVotes"
-                                        ng-class="{'neg-votes':  allVote[i] < 0, 'pos-votes':  allVote[i] > 0}"
-                                        value = "{{allVote[i]}}">{{allVote[i]}}
+                                        ng-class="{'neg-votes':  detailModel.allVote[i] < 0, 'pos-votes':  detailModel.allVote[i] > 0}"
+                                        value = "{{detailModel.allVote[i]}}">
+                                    {{detailModel.allVote[i]}}
                                     </h5>
                                 <li>
-                                <li><a ng-click="addVote(i, -1)" class="icoVoteDown" title="Vote Down"><i class="fa fa-thumbs-down"></i></a></li>
-                                <span ng-if="hasVoted[i]" style="font-size: x-small;font-style: italic;">Voted</span>
+                                <li><a ng-click="detailModel.addVote(i, -1)" class="icoVoteDown" title="Vote Down"><i class="fa fa-thumbs-down"></i></a></li>
+                                <span ng-if="detailModel.hasVoted[i]" style="font-size: x-small;font-style: italic;">Voted</span>
                             </ul>
                         </div>
 
