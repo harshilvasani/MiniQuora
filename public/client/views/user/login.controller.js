@@ -6,14 +6,15 @@
         .module("MiniQuoraApp")
         .controller("LoginController", LoginController); // name of controller, function to be call
 
-    function LoginController($scope,$location) {
+    function LoginController($scope, $location) {
+        var vm = this; // view model object
 
-        $scope.location = $location.url();
+        vm.location = $location.url();
         alert( "In Login Controller");
 
-        $scope.login = myLogin
-        function myLogin(username, password) {
-            alert(username + ' ' + password)
+        vm.login = myLogin
+        function myLogin(user) {
+            alert(user.username + ' ' + user.password)
         }
     }
 })();
