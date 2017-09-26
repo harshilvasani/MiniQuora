@@ -33,6 +33,12 @@
                 controllerAs: "detailModel"
             })
 
+            .when("/profile", {
+                templateUrl: "views/user/profile.view.html",
+                // controller : "WallController",
+                // controllerAs: "wallModel"
+            })
+
             .otherwise({
                 redirectTo: "/wall"
             });

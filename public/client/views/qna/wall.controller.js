@@ -6,7 +6,8 @@
         .module("MiniQuoraApp")
         .controller("WallController", WallController); // name of controller, function to be call
 
-    function WallController($scope,$location) {
+    function WallController($location) {
+        var vm = this;
         alert("In Wall Controller");
     }
 })();
