@@ -31,20 +31,20 @@
         <!--<p><a href="#">This is a link</a></p>-->
         <div class="row">
             <div class="col s3 offset-s2">
-                <h4 class="card-title grey-text text-darken-4">Harshil Vasani</h4>
-                <p class="medium-small grey-text">Web Developer</p>
+                <h4 class="card-title grey-text text-darken-4">{{ profileModel.currentUserInfo.name }}</h4>
+                <p class="medium-small grey-text">{{ profileModel.currentUserInfo.profession }}</p>
             </div>
             <div class="col s2 center-align">
                 <h4 class="card-title grey-text text-darken-4">Questions</h4>
-                <p class="medium-small grey-text">10</p>
+                <p class="medium-small grey-text">{{ profileModel.currentUserInfo.questions }}</p>
             </div>
             <div class="col s2 center-align">
                 <h4 class="card-title grey-text text-darken-4">Answers</h4>
-                <p class="medium-small grey-text">100</p>
+                <p class="medium-small grey-text">{{ profileModel.currentUserInfo.answers }}</p>
             </div>
             <div class="col s2 center-align">
                 <h4 class="card-title grey-text text-darken-4">Votes Earned</h4>
-                <p class="medium-small grey-text">23</p>
+                <p class="medium-small grey-text">{{ profileModel.currentUserInfo.votes }}</p>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
                 <h4><i class="material-icons cyan-text text-darken-2">work</i></h4>
             </div>
             <div class="col s3">
-                <h4>Web Developer</h4>
+                <h4>{{ profileModel.currentUserInfo.profession }}</h4>
             </div>
         </div>
         <div class="row" style="margin-bottom: 0px">
@@ -64,7 +64,7 @@
                 <h4><i class="material-icons cyan-text text-darken-2">contact_phone</i></h4>
             </div>
             <div class="col s3">
-                <h4>+1 (617) 792 1855</h4>
+                <h4>{{ profileModel.currentUserInfo.number }}</h4>
             </div>
         </div>
         <div class="row" style="margin-bottom: 0px">
@@ -72,7 +72,7 @@
                 <h4><i class="material-icons cyan-text text-darken-2">contact_mail</i></h4>
             </div>
             <div class="col s3">
-                <h4>mail@domain.com</h4>
+                <h4>{{ profileModel.currentUserInfo.email }}</h4>
             </div>
         </div>
         <div class="row" style="margin-bottom: 0px">
@@ -80,7 +80,7 @@
                 <h4><i class="material-icons cyan-text text-darken-2">person</i></h4>
             </div>
             <div class="col s3">
-                <h4>hvasani</h4>
+                <h4>{{ profileModel.currentUserInfo.username }}</h4>
             </div>
         </div>
     </div>

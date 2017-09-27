@@ -35,8 +35,8 @@
 
             .when("/profile", {
                 templateUrl: "views/user/profile.view.html",
-                // controller : "WallController",
-                // controllerAs: "wallModel"
+                controller : "ProfileController",
+                controllerAs: "profileModel"
             })
 
             .otherwise({
