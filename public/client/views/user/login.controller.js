@@ -13,21 +13,39 @@
         alert( "In Login Controller");
 
         vm.login = myLogin
+
         function myLogin(credentials) {
+
             alert(credentials.username + ' ' + credentials.password);
-            var user = UserService.findUserByCredentials(credentials);
-            alert(user.username + ' ' + user.password);
 
-            if(user != null){
+            UserService
+                .findUserByCredentials(credentials)
+                .then(
+                        function(doc){
+                            if(doc.data != null){
 
-                UserService.setCurrentUser(user);
-                $location.path('/profile');
-            }
+                                UserService.setCurrentUser(doc.data);
+                                $location.path('/profile');
+                            }
 
-            else {
-                vm.loginModel.password = null;
-                alert("Check your password OR username");
-            }
+                            else {
+                                vm.loginModel.password = null;
+                                alert("Check your password OR username");
+                            }
+                        }
+                );
+            //alert(user.username + ' ' + user.password);
+
+            // if(user != null){
+            //
+            //     UserService.setCurrentUser(user);
+            //     $location.path('/profile');
+            // }
+            //
+            // else {
+            //     vm.loginModel.password = null;
+            //     alert("Check your password OR username");
+            // }
 
         }
     }

@@ -1,0 +1,10 @@
+[
+  {"_id" : "123", "username" : "alice", "password" : "alice123", "name" : "Alice Wonder",  "profession" : "Software Developer",
+    "number" : "+6177921855", "email" : "alice@mq.come"  },
+  {"_id" : "234", "username" : "bob12", "password" : "bob12345", "name" : "Bob Marley",  "profession"  : ".Net Developer" ,
+    "number" :"+6177921856", "email"  : "bob@mq.come" },
+  {"_id" : "345", "username" : "charly", "password" : "charly12", "name" : "Charly Garcia",  "profession" : "Web developer" ,
+    "number" :"+6177921857", "email"  : "charly@mq.come"  },
+  {"_id" : "456", "username" : "hvasani", "password" : "qwertyuiop", "name" : "Harshil Vaani",    "profession" : "Software Developer",
+    "number" :"+6177921858", "email"  : "hvasani@mq.come"  }
+]

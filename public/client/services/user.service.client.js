@@ -24,39 +24,27 @@
         return api;
 
         function logout() {
-            // return $http.post("/api/assignment/logout");
-            setCurrentUser(null);
+            return $http.post("/api/assignment/logout");
+            // setCurrentUser(null);
         }
-
 
         function setCurrentUser (user) {
             $rootScope.currentUser = user;
         }
 
         function getCurrentUser () {
-             return $rootScope.currentUser;
-            // var curUser = $http.get("/api/assignment/loggedin");
-            // return curUser;
+            // return $rootScope.currentUser;
+            var curUser = $http.get("/api/assignment/loggedin");
+            return curUser;
         }
 
         function findUserByCredentials(credentials) {
-            for (var i in users){
-                if(users[i].username == credentials.username && users[i].password == credentials.password){
-                    return users[i];
-                }
-            }
-            return null;
-            // return $http.post("/api/assignment/login?username=" + credentials.username + "&password=" + credentials.password);
+            var res = $http.post("/api/login?username=" + credentials.username + "&password=" + credentials.password);
+            return res;
         }
 
         function findUserById(userId){
-            for (var i in users){
-                if(users[i]._id == userId){
-                    return users[i];
-                }
-            }
-            return null;
-            // return $http.get("/api/assignment/admin/user/" + userId);
+            return $http.get("/api/admin/user/" + userId);
         }
 
         function findAllUsers() {
@@ -66,18 +54,18 @@
 
 
         function register(user) {
-            users.add(newuser);
-            // return $http.post("/api/assignment/register", user);
+            // users.add(newuser);
+            return $http.post("/api/register", user);
         }
 
         function deleteUserById(userId) {
-            users.remove(userId);
-            // return $http.delete("/api/assignment/admin/user/" + userId);
+            // users.remove(userId);
+            return $http.delete("/api/admin/user/" + userId);
         }
 
         function updateUser(userId,user) {
-            users.set(userId, user);
-            // return $http.put("/api/assignment/user/" + userId, user);
+            // users.set(userId, user);
+            return $http.put("/api/user/" + userId, user);
         }
     }
 })();
