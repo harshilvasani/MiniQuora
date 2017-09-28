@@ -32,7 +32,9 @@ module.exports = function(app, userModel){
                 function(user) {
                     console.log("in localStrategy line 32");
                     console.log(user);
-                    if (!user) { return done(null, false); }
+                    if (!user) {
+                        return done(null, "User not found");
+                    }
                     return done(null, user);
                 },
                 function(err) {

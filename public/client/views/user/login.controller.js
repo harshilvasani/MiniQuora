@@ -22,14 +22,14 @@
                 .findUserByCredentials(credentials)
                 .then(
                         function(doc){
-                            if(doc.data != null){
+                            if(doc.data != null && doc.data != "User not found"){
 
                                 UserService.setCurrentUser(doc.data);
                                 $location.path('/profile');
                             }
 
                             else {
-                                vm.loginModel.password = null;
+                                vm.user.password = null;
                                 alert("Check your password OR username");
                             }
                         }
