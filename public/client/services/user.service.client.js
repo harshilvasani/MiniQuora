@@ -8,12 +8,6 @@
 
     function UserService($rootScope,$http) {
 
-        var users = [
-            {_id: "123", username: "alice",    password: "alice123",    firstName: "Alice",  lastName: "Wonder"  },
-            {_id: "234", username: "bob12",      password: "bob12345",      firstName: "Bob",    lastName: "Marley"  },
-            {_id: "345", username: "charly",   password: "charly12",   firstName: "Charly", lastName: "Garcia"  },
-            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
-        ]
 
         var api = {
             findUserByCredentials : findUserByCredentials,

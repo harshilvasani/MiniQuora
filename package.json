@@ -4,7 +4,9 @@
   "description": "mini version of quora and stack-overflow",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.15.4"
+    "body-parser": "^1.18.2",
+    "express": "^4.15.4",
+    "multer": "^1.3.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -12,5 +14,6 @@
     "start": "node server.js"
   },
   "author": "Harshil Vasani",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": "https://github.com/harshilvasani/MiniQuora.git"
 }
