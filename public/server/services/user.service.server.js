@@ -33,7 +33,7 @@ module.exports = function(app, userModel){
                     console.log("in localStrategy line 32");
                     console.log(user);
                     if (!user) {
-                        return done(null, "User not found");
+                        return done(null, false);
                     }
                     return done(null, user);
                 },

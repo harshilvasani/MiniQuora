@@ -22,17 +22,14 @@
                 .findUserByCredentials(credentials)
                 .then(
                         function(doc){
-                            if(doc.data != null && doc.data != "User not found"){
+                            UserService.setCurrentUser(doc.data);
+                            $location.path('/profile');
 
-                                UserService.setCurrentUser(doc.data);
-                                $location.path('/profile');
-                            }
-
-                            else {
-                                vm.user.password = null;
-                                alert("Check your password OR username");
-                            }
-                        }
+                        },
+                    function(err) {
+                        vm.user.password = null;
+                        alert("Check your password OR username ... ");
+                    }
                 );
             //alert(user.username + ' ' + user.password);
 

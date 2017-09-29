@@ -16,7 +16,27 @@
             email : "vasani.h@husky.neu.edu", number : "+ (617) 792-1855", questions : 10, answers : 76, votes : 47}
 
         function init() {
-            vm.currentUserInfo = profileInfo;
+            UserService.getCurrentUser()
+                .then(
+                    function(doc){
+                        // alert(doc.data);
+                        if(doc.data == 0){
+                            $location.path('/login');
+                        }
+                        else{
+                            profileInfo = doc.data
+                            profileInfo.questions = 10
+                            profileInfo.answers = 54
+                            profileInfo.votes = 110
+
+                            vm.currentUserInfo = doc.data;// Create object like one above
+                        }
+                    },
+                    function(err) {
+                        $location.path('/login');
+
+                    }
+                );
         }
         init();
     }

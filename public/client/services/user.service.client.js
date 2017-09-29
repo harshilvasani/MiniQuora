@@ -24,7 +24,7 @@
         return api;
 
         function logout() {
-            return $http.post("/api/assignment/logout");
+            return $http.post("/api/logout");
             // setCurrentUser(null);
         }
 
@@ -34,7 +34,7 @@
 
         function getCurrentUser () {
             // return $rootScope.currentUser;
-            var curUser = $http.get("/api/assignment/loggedin");
+            var curUser = $http.get("/api/loggedin");
             return curUser;
         }
 
@@ -49,7 +49,7 @@
 
         function findAllUsers() {
             return users;
-            // return $http.get("/api/assignment/admin/user");
+            // return $http.get("/api/admin/user");
         }
 
 

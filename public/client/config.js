@@ -36,11 +36,35 @@
             .when("/profile", {
                 templateUrl: "views/user/profile.view.html",
                 controller : "ProfileController",
-                controllerAs: "profileModel"
+                controllerAs: "profileModel",
+                // resolve: {
+                //     checkLoggedIn : checkLoggedIn
+                // }
             })
 
             .otherwise({
                 redirectTo: "/wall"
             });
+    }
+
+    function checkLoggedIn(UserService, $q, $location) {
+        // console.log("IN checkLoggedIn");
+        var deferred = $q.defer();
+
+        UserService
+            .getCurrentUser()
+            .then(function(response) {
+                var currentUser = response.data;
+                console.log($location.url());
+                if(currentUser || $location.url()=='/wall') {
+                    UserService.setCurrentUser(currentUser);
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
+                    $location.url("/wall");
+                }
+            });
+
+        return deferred.promise;
     }
 })();
