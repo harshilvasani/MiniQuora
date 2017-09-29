@@ -231,3 +231,41 @@
     top: -10px;
     left: -5px;
 }
+
+.myHeader li a{
+    background-color: transparent;
+    text-decoration: none;
+    font-size: large;
+}
+
+
+.brand-logo{
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.brand-logo:hover{
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
+}
+
+.myHeader li a:hover{
+    background-color: white;
+    color: #4d636f;
+}
+
+.myMenuIcon{
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.myMenuIcon:hover{
+    background-color: white;
+    color: #4d636f;
+    text-decoration: none;
+
+}
+nav{
+    background-color: #4d636f ;
+}
