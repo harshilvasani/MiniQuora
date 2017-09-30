@@ -11,14 +11,20 @@
             .when("/login", {
                 templateUrl: "views/user/login.view.html",
                 controller : "LoginController",
-                controllerAs: "loginModel"// global model variable name which can be used
+                controllerAs: "loginModel",// global model variable name which can be used
                                      // to access ng-model declared in view
+                resolve : {
+                    checkNotLoggedIn : checkNotLoggedIn
+                }
             })
 
             .when("/register", {
                 templateUrl: "views/user/register.view.html",
                 controller : "RegisterController",
-                controllerAs: "registerModel"
+                controllerAs: "registerModel",
+                resolve : {
+                    checkNotLoggedIn : checkNotLoggedIn
+                }
             })
 
             .when("/wall", {
@@ -37,9 +43,9 @@
                 templateUrl: "views/user/profile.view.html",
                 controller : "ProfileController",
                 controllerAs: "profileModel",
-                // resolve: {
-                //     checkLoggedIn : checkLoggedIn
-                // }
+                resolve: {
+                    checkLoggedIn : checkLoggedIn
+                }
             })
 
             .otherwise({
@@ -56,12 +62,35 @@
             .then(function(response) {
                 var currentUser = response.data;
                 console.log($location.url());
-                if(currentUser || $location.url()=='/wall') {
+                if(currentUser !== '0') {
                     UserService.setCurrentUser(currentUser);
                     deferred.resolve();
                 } else {
+                    alert("Please login!")
                     deferred.reject();
                     $location.url("/wall");
+                }
+            });
+
+        return deferred.promise;
+    }
+
+    function checkNotLoggedIn(UserService, $q, $location) {
+        // console.log("IN checkLoggedIn");
+        var deferred = $q.defer();
+
+        UserService
+            .getCurrentUser()
+            .then(function(response) {
+                var currentUser = response.data;
+                console.log($location.url());
+                if(currentUser == '0') {
+                    UserService.setCurrentUser(null);
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
+                    alert("Already logged in as: " + currentUser.username)
+                    $location.url("/profile");
                 }
             });
 

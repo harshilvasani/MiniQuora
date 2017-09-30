@@ -6,7 +6,7 @@
         .module("MiniQuoraApp")
         .factory("UserService",UserService);
 
-    function UserService($rootScope,$http) {
+    function UserService($rootScope,$http) {//root scope is global scope
 
 
         var api = {

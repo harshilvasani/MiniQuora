@@ -19,18 +19,12 @@
             UserService.getCurrentUser()
                 .then(
                     function(doc){
-                        // alert(doc.data);
-                        if(doc.data == 0){
-                            $location.path('/login');
-                        }
-                        else{
-                            profileInfo = doc.data
-                            profileInfo.questions = 10
-                            profileInfo.answers = 54
-                            profileInfo.votes = 110
+                        profileInfo = doc.data
+                        profileInfo.questions = 10
+                        profileInfo.answers = 54
+                        profileInfo.votes = 110
 
-                            vm.currentUserInfo = doc.data;// Create object like one above
-                        }
+                        vm.currentUserInfo = doc.data;// Create object like one above
                     },
                     function(err) {
                         $location.path('/login');
