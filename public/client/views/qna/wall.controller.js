@@ -8,6 +8,6 @@
 
     function WallController($location) {
         var vm = this;
-        alert("In Wall Controller");
+        // alert("In Wall Controller");
     }
 })();

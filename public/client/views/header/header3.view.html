@@ -4,7 +4,7 @@
     })
 </script>
 
-<nav>
+<nav ng-controller="HeaderController as headerModel">
     <div class="nav-wrapper">
         <a href="#" data-activates="mobile-demo" class="button-collapse myMenuIcon"><i class="material-icons">menu</i></a>
         <a href="#/wall" class="brand-logo center">MiniQuora</a>
@@ -31,7 +31,7 @@
                 </a>
             </li>
             <li>
-                <a href="#/logout" title="Logout">
+                <a ng-click="headerModel.logout()" title="Logout">
                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                 </a>
             </li>

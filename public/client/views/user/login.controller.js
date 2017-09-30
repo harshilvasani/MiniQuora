@@ -10,13 +10,13 @@
         var vm = this; // view model object
 
         vm.location = $location.url();
-        alert( "In Login Controller");
+        // alert( "In Login Controller");
 
         vm.login = myLogin
 
         function myLogin(credentials) {
 
-            alert(credentials.username + ' ' + credentials.password);
+            // alert(credentials.username + ' ' + credentials.password);
 
             UserService
                 .findUserByCredentials(credentials)
