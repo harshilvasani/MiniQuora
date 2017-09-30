@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0681701c-9573-48ad-bd2e-585b199c659d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/client/views/header/header.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/client/index.html" afterPath="$PROJECT_DIR$/public/client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/client/views/header/header3.view.html" afterPath="$PROJECT_DIR$/public/client/views/header/header3.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/client/views/qna/wall.controller.js" afterPath="$PROJECT_DIR$/public/client/views/qna/wall.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/client/views/user/login.controller.js" afterPath="$PROJECT_DIR$/public/client/views/user/login.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/client/views/user/profile.controller.js" afterPath="$PROJECT_DIR$/public/client/views/user/profile.controller.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -526,7 +520,7 @@
       <workItem from="1506540437004" duration="5029000" />
       <workItem from="1506553183126" duration="6030000" />
       <workItem from="1506640677869" duration="5787000" />
-      <workItem from="1506743994309" duration="829000" />
+      <workItem from="1506743994309" duration="860000" />
     </task>
     <task id="LOCAL-00001" summary="Adding materialize code for details page">
       <created>1506144765059</created>
@@ -710,11 +704,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506647789510</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added logout code in header controller">
+      <created>1506744842248</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1506744842248</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129613000" />
+    <option name="totallyTimeSpent" value="129644000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1911" y="-9" width="1384" height="746" extended-state="6" />
@@ -765,7 +766,8 @@
     <MESSAGE value="updated port in server to host on heroku" />
     <MESSAGE value="changed title" />
     <MESSAGE value="updated client side to get logged in user code" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated client side to get logged in user code" />
+    <MESSAGE value="added logout code in header controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logout code in header controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
