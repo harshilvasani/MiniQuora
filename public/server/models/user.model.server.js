@@ -63,8 +63,8 @@ module.exports = function(app) {
         var deferred = q.defer();
 
         try {
-            users.add(newUser);
-            deferred.resolve(true);
+            users.push(newUser);
+            deferred.resolve(newUser);
         }
         catch (err){
             deferred.resolve(err);
@@ -106,16 +106,16 @@ module.exports = function(app) {
         return deferred.promise;
     }
 
-    function findUserByUsernameServer() {
+    function findUserByUsernameServer(username) {
         var deferred = q.defer();
 
         for(var i in users){
-            if(users[i].username == credential.username){
+            if(users[i].username == username){
                 deferred.resolve(users[i]);
                 return deferred.promise;
             }
         }
-        deferred.resolve({});
+        deferred.resolve(null);
         return deferred.promise;
     }
 }

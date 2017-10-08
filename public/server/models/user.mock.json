@@ -5,6 +5,6 @@
     "number" :"+6177921856", "email"  : "bob@mq.come" },
   {"_id" : "345", "username" : "charly", "password" : "charly12", "name" : "Charly Garcia",  "profession" : "Web developer" ,
     "number" :"+6177921857", "email"  : "charly@mq.come"  },
-  {"_id" : "456", "username" : "hvasani", "password" : "qwertyuiop", "name" : "Harshil Vaani",    "profession" : "Software Developer",
+  {"_id" : "456", "username" : "hvasani", "password" : "qwertyuiop", "name" : "Harshil Vasani",    "profession" : "Software Developer",
     "number" :"+6177921858", "email"  : "hvasani@mq.come"  }
 ]

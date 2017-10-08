@@ -6,7 +6,7 @@
         .module("MiniQuoraApp")
         .controller("RegisterController", RegisterController); // name of controller, function to be call
 
-    function RegisterController($location) {
+    function RegisterController(UserService, $location) {
 
         var vm = this
         vm.location = $location.url();
@@ -15,6 +15,17 @@
         vm.register = myMyregister
         function myMyregister(newuser) {
             alert(newuser.username + ' ' + newuser.password + ' ' + newuser.email)
+            UserService
+                .register(newuser)
+                .then(
+                        function (doc) {
+                            UserService.setCurrentUser(newuser);
+                            $location.path('/profile');
+                        },
+                    function (err) {
+                        
+                    }
+                )
         }
     }
 })();
