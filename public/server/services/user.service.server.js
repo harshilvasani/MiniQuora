@@ -96,7 +96,7 @@ module.exports = function(app, userModel){
             .then(
                 function(user){
                     if(user) {
-                        res.json(null);
+                        res.status(434).json("User already registered");//this will cause to go in error
                     } else {
                         // newUser.password = bcrypt.hashSync(newUser.password)
                         return userModel.createUser_Server(newUser);
@@ -117,6 +117,7 @@ module.exports = function(app, userModel){
                             }
                         });
                     }
+
                 },
                 function(err){
                     res.status(400).send(err);
