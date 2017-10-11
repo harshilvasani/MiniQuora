@@ -127,3 +127,12 @@ hr{
 a{
     cursor: pointer;
 }
+
+.ask-question-image{
+    height: unset;
+    background-image: url(https://www.gotquestions.org/img/question-guy-400.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
