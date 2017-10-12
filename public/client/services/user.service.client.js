@@ -11,6 +11,8 @@
 
         var api = {
             findUserByCredentials : findUserByCredentials,
+            findUserByUsername : findUserByUsername,
+
             findUserById : findUserById,
             findAllUsers : findAllUsers,
             register : register,
@@ -18,7 +20,8 @@
             updateUser : updateUser,
             setCurrentUser: setCurrentUser,
             getCurrentUser: getCurrentUser,
-            logout: logout
+            logout: logout,
+            sendPassword : sendPassword
         }
 
         return api;
@@ -45,6 +48,15 @@
 
         function findUserById(userId){
             return $http.get("/api/admin/user/" + userId);
+        }
+
+        function findUserByUsername(username) {
+            var myUsername = {username : username}
+            return $http.post("/api/user/username" , myUsername);
+        }
+
+        function sendPassword(user) {
+            return $http.post("/api/sendPasswrd" , user);
         }
 
         function findAllUsers() {

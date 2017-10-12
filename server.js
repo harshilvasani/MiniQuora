@@ -23,7 +23,6 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 require('./public/server/app.js')(app)
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3050;
 app.listen(port);

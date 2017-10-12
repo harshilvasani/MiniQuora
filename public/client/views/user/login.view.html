@@ -19,13 +19,70 @@
 
                         <label for="password">Password*</label>
                         <input type="password" id="password" name="pwd" class="form-control" ng-model="loginModel.user.password" ng-minlength="8" ng-maxlength="20" required>
-                    </div>
 
-                    <button id="login" type="submit" ng-disabled="loginForm.$invalid" class="btn waves-effect waves-light btn action-button" style="margin-left: 45px" >
-                        <span>LOGIN<i class="fa fa-sign-in" style="color : #bcb666; margin-left: 5px"></i></span>
-                    </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2  ">
+                        <button id="login" type="submit" ng-disabled="loginForm.$invalid" class="btn waves-effect waves-light btn action-button" style="margin-left: 45px" >
+                            <span>LOGIN<i class="fa fa-sign-in" style="color : #bcb666; margin-left: 5px"></i></span>
+                        </button>
+                        </div>
+                        <div class="col-md-offset-8 col-md-2 " >
+                            <a style="background-color: transparent; color: #26a69a;" class=" modal-trigger"
+                               href="#sendEmailModal">
+                                <strong>Forgot Password?</strong>
+                            </a>
+                        </button></div>
+
+                    </div>
                 </form>
+
             </div>
         </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal({
+            dismissible: false,
+            complete: function() { Materialize.updateTextFields(); }
+        });
+    });
+
+</script>
+
+<div id="sendEmailModal" style="height:fit-content; border-radius: 6px;" class="modal">
+    <span class="card-title modal-action modal-close" style="cursor: pointer;z-index: 1000;" ng-click="loginModel.clearForm(sendPasswordForm, loginModel.sendEmailData)"><i class="material-icons right">close</i></span>
+
+    <div style="margin: 10px; ">
+
+    <form name="sendPasswordForm" ng-submit="loginModel.emailPassword(loginModel.sendEmailData)" novalidate>
+
+        <div class="form-group input-field" ng-class="{ 'has-error' : sendPasswordForm.username.$invalid && !sendPasswordForm.username.$pristine }">
+            <label>Username*</label>
+            <label for="username">username</label>
+
+            <input type="text" name="username" class="form-control" ng-pattern="/^[a-zA-Z_]{5,20}/" ng-model="loginModel.sendEmailData.username" required>
+            <p ng-show="sendPasswordForm.username.$invalid && !sendPasswordForm.username.$pristine" class="error-text">Enter a valid username.</p>
+        </div>
+
+        <div class="form-group input-field" ng-class="{ 'has-error' : sendPasswordForm.email.$invalid && !sendPasswordForm.email.$pristine }">
+            <label>Email</label>
+            <label for="email">Email</label>
+
+            <input type="email" id = "email" name="email" class="form-control" ng-model="loginModel.sendEmailData.email" required>
+            <em><p ng-show="sendPasswordForm.email.$invalid && !sendPasswordForm.email.$pristine" style="color: #C4302B;">Enter a valid email.</p></em>
+        </div>
+        <button class="btn waves-effect waves-light modal-action modal-close" ng-disabled="sendPasswordForm.$invalid" type="submit" name="action" >Send
+            <i class="material-icons right">send</i>
+        </button>
+
+        <em><h6 style="color: #C4302B;">Email address not found</h6></em>
+    </form>
+    <!--<h4>Send password to ***sd@gmail.com</h4>-->
+        <p>Pristine: {{sendPasswordForm.$pristine}}</p>
+
     </div>
 </div>

@@ -13,6 +13,8 @@ module.exports = function(app, userModel){
     app.post  ('/api/logout',         logout);
     app.post  ('/api/register',       register);
     app.get   ('/api/loggedin',       loggedin);
+    app.post  ('/api/user/username',  findUserByUsername);
+    app.post  ('/api/sendPasswrd',    sendEmail)
 
     function authorized (req, res, next) {
         if (!req.isAuthenticated()) {
@@ -123,5 +125,57 @@ module.exports = function(app, userModel){
                     res.status(400).send(err);
                 }
             );
+    }
+
+    function findUserByUsername(req,res) {
+        var usernameObj = req.body;
+        userModel
+            .findUserByUsername_Server(usernameObj.username)
+            .then(
+                function(user){
+                    if(user) {
+                        res.send(user);
+
+                    } else {
+                        // newUser.password = bcrypt.hashSync(newUser.password)
+                        res.status(434).json("Username not found");
+                    }
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
+    }
+
+
+
+    function sendEmail(res, req) {
+        user = res.body;
+
+        var nodemailer = require('nodemailer');
+
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'msd.dblp.team10@gmail.com',
+                pass: 'myPassword'
+            },rejectUnauthorized: false,secureConnection: true,
+            port: 587,
+        });
+
+        var mailOptions = {
+            from: 'msd.dblp.team10@gmail.com',
+            to: user.email,
+            subject: 'Sending Email using Node.js',
+            text: user.password
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
     }
 }

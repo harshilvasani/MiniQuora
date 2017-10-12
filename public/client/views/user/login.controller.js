@@ -6,17 +6,28 @@
         .module("MiniQuoraApp")
         .controller("LoginController", LoginController); // name of controller, function to be call
 
-    function LoginController(UserService, $location) {
+    function LoginController(UserService, $location, $scope) {
         var vm = this; // view model object
-
         vm.location = $location.url();
-        // alert( "In Login Controller");
 
         vm.login = myLogin
+        vm.emailPassword = myEmailPassword
+        vm.usernameExist = myUsernameExist
+        vm.clearForm = myClearForm
+
+
+        function myClearForm(myForm, myData) {
+            // console.log(myForm);
+            myForm.$setPristine();
+            // alert(myForm.email.$viewValue);
+            // myForm.username.$$rawModelValue = '';
+            // myForm.username.$viewValue = '';
+
+            // console.log(myData);
+            vm.sendEmailData = null;
+        }
 
         function myLogin(credentials) {
-
-            // alert(credentials.username + ' ' + credentials.password);
 
             UserService
                 .findUserByCredentials(credentials)
@@ -31,18 +42,51 @@
                         alert("Check your password OR username ... ");
                     }
                 );
-            //alert(user.username + ' ' + user.password);
 
-            // if(user != null){
-            //
-            //     UserService.setCurrentUser(user);
-            //     $location.path('/profile');
-            // }
-            //
-            // else {
-            //     vm.loginModel.password = null;
-            //     alert("Check your password OR username");
-            // }
+        }
+        
+        function myEmailPassword(sendEmailData) {
+            console.log(sendEmailData);
+
+            UserService
+                .findUserByUsername(sendEmailData.username)
+                .then(
+                    function(doc){
+                        var user = doc.data;
+                        if(user.email == sendEmailData.email){
+                            UserService
+                                .sendPassword(user)
+                                .then(
+                                    function(doc){
+                                        alert("Please check email for your password");
+                                    },
+                                    function(err) {
+                                        vm.user.password = null;
+                                        alert("Retry sending email.");
+                                    }
+                                );
+                        }
+                        else{
+                            alert("could not match email");
+                        }
+
+                    },
+                    function(err) {
+                        vm.user.password = null;
+                        vm.errorMsg = username + " does not exist";
+                        return false;
+
+                    }
+                );
+        }
+
+        function myUsernameExist(username) {
+            if(username.length < 5){
+                vm.user.password = null;
+                vm.errorMsg = username + " does not exist";
+                return false;
+            }
+
 
         }
     }
