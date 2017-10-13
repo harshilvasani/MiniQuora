@@ -1,12 +1,16 @@
 ////////////Email////////////
 var nodemailer = require('nodemailer');
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'msd.dblp.team10@gmail.com',
         pass: 'myPassword'
-    },rejectUnauthorized: false,secureConnection: true,
+    },
+    tls: {
+        rejectUnauthorized: false
+    },
+    secureConnection: true,
     port: 587,
 });
 

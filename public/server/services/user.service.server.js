@@ -159,7 +159,11 @@ module.exports = function(app, userModel){
             auth: {
                 user: 'msd.dblp.team10@gmail.com',
                 pass: 'myPassword'
-            },rejectUnauthorized: false,secureConnection: true,
+            },
+            tls: {
+                rejectUnauthorized: false
+            },
+            secureConnection: true,
             port: 587,
         });
 
